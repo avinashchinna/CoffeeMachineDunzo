@@ -6,9 +6,10 @@
 #include<string>
 using namespace std;
 
+// Thread safe queue data structure to store the serve beverages requests from the machine
 class RequestQueue{
 	queue<string> worker_queue;
-	mutex mu;
+	mutex mu; // mutex to permit access to critical section of code
 public:
 	RequestQueue(){}
 

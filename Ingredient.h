@@ -4,7 +4,7 @@
 #include<string>
 using namespace std;
 
-//Helper Class for ingredient information.
+//class container to store information about Ingredients
 class Ingredient {
 	string name;
 	int quantity;

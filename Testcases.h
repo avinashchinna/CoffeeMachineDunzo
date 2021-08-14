@@ -1,47 +1,45 @@
 #ifndef TESTCASES_H_INCLUDED
 #define TESTCASES_H_INCLUDED
 
-#include<cassert>
 #include <iostream>
-#include "machine.h"
-#include "Utils.h"
-#include "ThreadPool.h"
 using namespace std;
+
+#include "Utils.h"
+#include "machine.h"
+#include "ThreadPool.h"
 
 void TestRefill(Machine& machine) {
     cout << "Testing Refilling the machine" << endl;
     cout << "Ingredients before refill : " << endl;
-    DisplayInventory(machine);
+    DisplayInventoryUtil(machine);
 	machine.RefillIngredients(map<string, int>({ make_pair("coffeeSyrup",20) }));
 	cout << "Ingredients after refill : " << endl;
-	DisplayInventory(machine);
+	DisplayInventoryUtil(machine);
 }
 
-void TestSuccessfulDispension(Machine& machine, int numThreads) {
+void TestServing(Machine& machine) {
     cout << "Testing serving a single beverage" << endl;
-    cout << "Ingredients before serving : " << endl;
-    DisplayInventory(machine);
+    int numThreads = machine.getNumOutlets();
     ThreadPool pool(numThreads, &machine);
     pool.submit("ginger_tea");
     pool.shutdown();
     cout << "Ingredients after serving : " << endl;
-	DisplayInventory(machine);
+	DisplayInventoryUtil(machine);
 }
 
 void TestRefillMultiple(Machine& machine) {
     cout << "Testing Refilling the machine with multiple ingredients" << endl;
     cout << "Ingredients before refill : " << endl;
-    DisplayInventory(machine);
-	machine.RefillIngredients(map<string, int>({ make_pair("hotWater",600),make_pair("hotMilk",100) }));
+    DisplayInventoryUtil(machine);
+	machine.RefillIngredients(map<string, int>({ make_pair("hotWater",500),make_pair("hotMilk",500) }));
 	map<string, int> ingredients = machine.getAvailableIngredients();
 	cout << "Ingredients after refill : " << endl;
-	DisplayInventory(machine);
+	DisplayInventoryUtil(machine);
 }
 
-void TestMultipleDispensions(Machine& machine, int numThreads) {
+void TestServeMultiple(Machine& machine) {
     cout << "Testing serving multiple beverages" << endl;
-    cout << "Ingredients before serving : " << endl;
-    DisplayInventory(machine);
+    int numThreads = machine.getNumOutlets();
     ThreadPool pool(numThreads, &machine);
     pool.submit("hot_tea");
     pool.submit("hot_coffee");
@@ -49,32 +47,35 @@ void TestMultipleDispensions(Machine& machine, int numThreads) {
     pool.submit("black_tea");
     pool.shutdown();
 	cout << "Ingredients after serving : " << endl;
-	DisplayInventory(machine);
+	DisplayInventoryUtil(machine);
 }
 
-void TestInsufficientIngredientQuantity(Machine& machine, int numThreads) {
+void TestIngredientQuantities(Machine& machine) {
     cout << "Testing serving a single beverage with insufficient quantity" << endl;
+    int numThreads = machine.getNumOutlets();
     ThreadPool pool(numThreads, &machine);
-    pool.submit("espresso");
-	DisplayInventory(machine);
+    pool.submit("black_tea");
+    pool.shutdown();
+	DisplayInventoryUtil(machine);
 }
 
-void TestIngredientNotAvailable(Machine& machine, int numThreads) {
+void TestIngredientAvailability(Machine& machine) {
     cout << "Testing serving a single beverage with unavailable ingredient" << endl;
+    int numThreads = machine.getNumOutlets();
     ThreadPool pool(numThreads, &machine);
     pool.submit("green_tea");
     pool.shutdown();
-	DisplayInventory(machine);
+	DisplayInventoryUtil(machine);
 }
 
-void TestRefillNewIngredient(Machine& machine) {
+void TestRefillNew(Machine& machine) {
     cout << "Testing Refilling the machine with new ingredient" << endl;
     cout << "Ingredients before refill : " << endl;
-    DisplayInventory(machine);
-	machine.RefillIngredients(map<string, int>({ make_pair("greenMixture",40) }));
+    DisplayInventoryUtil(machine);
+	machine.RefillIngredients(map<string, int>({ make_pair("green_mixture",100) }));
 	map<string, int> ingredients = machine.getAvailableIngredients();
 	cout << "Ingredients after refill : " << endl;
-	DisplayInventory(machine);
+	DisplayInventoryUtil(machine);
 }
 
 

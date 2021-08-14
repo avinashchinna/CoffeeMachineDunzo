@@ -7,9 +7,10 @@ using namespace std;
 
 #include "Ingredient.h"
 
+//class container to store information about Beverages
 class Beverage{
 	string name;
-	map<string, int> requiredIngredients;
+	map<string, int> requiredIngredients; // stores the quantity of required Ingredients for a beverage
 public:
 	Beverage(){}
 

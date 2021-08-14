@@ -10,13 +10,15 @@ using namespace std;
 #include "machine.h"
 #include "Beverage.h"
 
+// Custom implementation of ThreadPool to manage creation of threads and serve the requests from the machine
 class ThreadPool{
-	int numThreads;
-	atomic<bool> flag;
+	int numThreads; // initializes to number of outlets to allow serving N beverages in parallel
+	atomic<bool> flag; //atomic flag to initiate and terminate the execution of threads
 	RequestQueue worker_queue;
 	vector<thread> threads;
 	Machine* machine;
 
+	// main function run by threads to serve beverages from the worker queue
 	void do_work(){
 		while(!flag){
 			string beverage;
