@@ -3,6 +3,7 @@
 
 #include "machine.h"
 #include<iomanip>
+using namespace std;
 
 template<typename T> void print(T t, const int& width, const char& seperator)
 {

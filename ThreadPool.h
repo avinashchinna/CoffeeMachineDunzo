@@ -8,27 +8,28 @@ using namespace std;
 
 #include "RequestQueue.h"
 #include "machine.h"
+#include "Beverage.h"
 
 class ThreadPool{
 	int numThreads;
 	atomic<bool> flag;
 	RequestQueue worker_queue;
 	vector<thread> threads;
-	Machine machine;
+	Machine* machine;
 
 	void do_work(){
 		while(!flag){
 			string beverage;
 			if(worker_queue.pop(beverage)){
 				//task();
-				machine.serveBeverage(beverage);
+				machine->serveBeverage(beverage);
 			}else{
 				this_thread::yield();
 			}
 		}
 	}
 public:
-	ThreadPool(int _numThreads, Machine _machine){
+	ThreadPool(int _numThreads, Machine* _machine){
 		this->numThreads = _numThreads;
 		this->machine = _machine;
 		flag = false;
@@ -43,7 +44,19 @@ public:
 		}
 	}
 
-	~ThreadPool(){
+	void shutdown(){
+	    while(!worker_queue.isEmpty()){
+            this_thread::yield();
+	    }
+        flag = true;
+		for(int i=0;i<numThreads;i++){
+			if(threads[i].joinable()){
+				threads[i].join();
+			}
+		}
+	}
+
+    ~ThreadPool(){
 		flag = true;
 		for(int i=0;i<numThreads;i++){
 			if(threads[i].joinable()){

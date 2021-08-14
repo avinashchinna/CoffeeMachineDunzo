@@ -8,22 +8,15 @@
 using namespace std;
 
 #include "Beverage.h"
+#include "Utils.h"
 
 class Machine{
-public:
 	int numOutlets;
 	map<string, int> availableIngredients;
 	map<string, Beverage> beveragesList;
 	mutex mu;
 
-
-	Machine(const Machine& m){
-        this->numOutlets = m.numOutlets;
-		this->availableIngredients = m.availableIngredients;
-		this->beveragesList = m.beveragesList;
-	}
-
-    Machine() = default;
+public:
 	Machine(int _numOutlets, map<string, int> _availableIngredients, map<string, Beverage> _beveragesList){
 		this->numOutlets = _numOutlets;
 		this->availableIngredients = _availableIngredients;
@@ -52,22 +45,16 @@ public:
 
 	void serveBeverage(string beverage){
 		unique_lock<mutex> lock(mu);
-		cout << "serving beverage" << endl;
 		if(beveragesList.find(beverage) == beveragesList.end()){
-			cout << " Beverage " << beverage << " is not available in the machine" << endl;
 			return;
 		}
 		else{
-            cout << "checking ingredients" << endl;
             UpdateIngredientsAfterServing(beveragesList[beverage]);
 		}
 	}
 
 	void UpdateIngredientsAfterServing(Beverage beverage){
 		bool allIngredientsAvailable = true;
-		cout << "hello" << endl;
-		//unique_lock<mutex> lock(mu);
-		cout << " lock acquired" << endl;
 		map<string, int> requiredIngredients = beverage.getIngredients();
 		for(auto ingredient:requiredIngredients){
 			if(availableIngredients.find(ingredient.first) == availableIngredients.end()){
@@ -86,8 +73,8 @@ public:
 			for(auto ingredient:requiredIngredients){
 				availableIngredients[ingredient.first] -= ingredient.second;
 			}
+			cout << beverage.getName() << " is prepared" << endl;
 		}
-		cout << beverage.getName() << " is prepared" << endl;
 	}
 
 };

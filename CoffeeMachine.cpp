@@ -36,14 +36,14 @@ int main(){
     DisplayInventory(machine);
 
     //TestSuite
-    TestInsufficientIngredientQuantity(machine);
+    TestInsufficientIngredientQuantity(machine, 3);
     TestRefill(machine);
-    TestSuccessfulDispension(machine);
+    TestSuccessfulDispension(machine, 3);
     TestRefillMultiple(machine);
-    TestMultipleDispensions(machine);
-    TestIngredientNotAvailable(machine);
+    TestMultipleDispensions(machine, 2);
+    TestIngredientNotAvailable(machine, 4);
     TestRefillNewIngredient(machine);
-    TestIngredientNotAvailable(machine);
+    TestIngredientNotAvailable(machine, 2);
 
     return 0;
 }
