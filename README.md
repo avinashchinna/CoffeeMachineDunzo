@@ -16,6 +16,7 @@ Output:
 
 Testing serving a single beverage with insufficient quantity
 Ingredients before serving black_tea
+
 ||  coffeeSyrup         ||  20       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  20       ||  
@@ -25,6 +26,7 @@ Ingredients before serving black_tea
 ||  teaLeavesSyrup      ||  100      ||  
 
 black_tea cannot be prepared because gingerSyrup is not sufficient
+
 ||  coffeeSyrup         ||  20       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  20       ||  
@@ -36,6 +38,7 @@ black_tea cannot be prepared because gingerSyrup is not sufficient
 
 Testing Refilling the machine
 Ingredients before refill : 
+
 ||  coffeeSyrup         ||  20       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  20       ||  
@@ -57,6 +60,7 @@ Ingredients after refill :
 
 Testing serving a single beverage
 Ingredients before serving ginger_tea
+
 ||  coffeeSyrup         ||  40       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  20       ||  
@@ -67,6 +71,7 @@ Ingredients before serving ginger_tea
 
 ginger_tea is prepared
 Ingredients after serving : 
+
 ||  coffeeSyrup         ||  40       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  0        ||  (LOW) 
@@ -77,7 +82,8 @@ Ingredients after serving :
 
 
 Testing Refilling the machine with multiple ingredients
-Ingredients before refill : 
+Ingredients before refill :
+
 ||  coffeeSyrup         ||  40       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  0        ||  (LOW) 
@@ -88,6 +94,7 @@ Ingredients before refill :
 
 
 Ingredients after refill : 
+
 ||  coffeeSyrup         ||  40       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  40       ||  
@@ -99,6 +106,7 @@ Ingredients after refill :
 
 Testing serving multiple beverages
 Ingredients before serving hot_tea
+
 ||  coffeeSyrup         ||  40       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  40       ||  
@@ -108,7 +116,9 @@ Ingredients before serving hot_tea
 ||  teaLeavesSyrup      ||  90       ||  
 
 hot_tea is prepared
+
 Ingredients before serving black_tea
+
 ||  coffeeSyrup         ||  40       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  30       ||  
@@ -119,6 +129,7 @@ Ingredients before serving black_tea
 
 black_tea cannot be prepared because gingerSyrup is not sufficient
 Ingredients before serving green_tea
+
 ||  coffeeSyrup         ||  40       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  30       ||  
@@ -129,6 +140,7 @@ Ingredients before serving green_tea
 
 green_tea cannot be prepared because green_mixture is not available
 Ingredients before serving hot_coffee
+
 ||  coffeeSyrup         ||  40       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  30       ||  
@@ -138,7 +150,8 @@ Ingredients before serving hot_coffee
 ||  teaLeavesSyrup      ||  60       ||  
 
 hot_coffee is prepared
-Ingredients after serving : 
+Ingredients after serving :
+
 ||  coffeeSyrup         ||  30       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  30       ||  
@@ -150,6 +163,7 @@ Ingredients after serving :
 
 Testing serving a single beverage with unavailable ingredient
 Ingredients before serving green_tea
+
 ||  coffeeSyrup         ||  30       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  30       ||  
@@ -159,6 +173,7 @@ Ingredients before serving green_tea
 ||  teaLeavesSyrup      ||  60       ||  
 
 green_tea cannot be prepared because green_mixture is not available
+
 ||  coffeeSyrup         ||  30       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  30       ||  
@@ -170,6 +185,7 @@ green_tea cannot be prepared because green_mixture is not available
 
 Testing Refilling the machine with new ingredient
 Ingredients before refill : 
+
 ||  coffeeSyrup         ||  30       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  30       ||  
@@ -180,6 +196,7 @@ Ingredients before refill :
 
 
 Ingredients after refill : 
+
 ||  coffeeSyrup         ||  30       ||  
 ||  elaichiSyrup        ||  100      ||  
 ||  gingerSyrup         ||  30       ||  
