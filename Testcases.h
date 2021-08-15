@@ -31,7 +31,7 @@ void TestRefillMultiple(Machine& machine) {
     cout << "Testing Refilling the machine with multiple ingredients" << endl;
     cout << "Ingredients before refill : " << endl;
     DisplayInventoryUtil(machine);
-	machine.RefillIngredients(map<string, int>({ make_pair("hotWater",500),make_pair("hotMilk",500) }));
+	machine.RefillIngredients(map<string, int>({ make_pair("hotWater",500),make_pair("hotMilk",500),make_pair("gingerSyrup", 40) }));
 	map<string, int> ingredients = machine.getAvailableIngredients();
 	cout << "Ingredients after refill : " << endl;
 	DisplayInventoryUtil(machine);

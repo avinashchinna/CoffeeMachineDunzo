@@ -17,14 +17,14 @@ int main(){
     availableIngredients.insert(make_pair("hotWater", 500));
     availableIngredients.insert(make_pair("hotMilk", 500));
     availableIngredients.insert(make_pair("teaLeavesSyrup", 100));
-    availableIngredients.insert(make_pair("gingerSyrup", 40));
+    availableIngredients.insert(make_pair("gingerSyrup", 20));
     availableIngredients.insert(make_pair("sugarSyrup", 100));
     availableIngredients.insert(make_pair("elaichiSyrup", 100));
     availableIngredients.insert(make_pair("coffeeSyrup", 20));
 
-    // list of beverages to be served by the machine and their required ingredients in respective quantites
+    // list of beverages to be served by the machine and their required ingredients in respective quantities
     map<string, Beverage> beverages;
-    beverages.insert(make_pair("ginger_tea", Beverage("ginger_tea", map<string, int>{make_pair("hotWater", 50), make_pair("hotMilk", 10), make_pair("teaLeavesSyrup", 10), make_pair("gingerSyrup", 5), make_pair("sugarSyrup", 10)})));
+    beverages.insert(make_pair("ginger_tea", Beverage("ginger_tea", map<string, int>{make_pair("hotWater", 50), make_pair("hotMilk", 10), make_pair("teaLeavesSyrup", 10), make_pair("gingerSyrup", 20), make_pair("sugarSyrup", 10)})));
     beverages.insert(make_pair("elaichi_tea", Beverage("elaichi_tea", map<string, int>{make_pair("hotWater", 50), make_pair("hotMilk", 10), make_pair("teaLeavesSyrup", 10), make_pair("elaichiSyrup", 5), make_pair("sugarSyrup", 10)})));
     beverages.insert(make_pair("hot_coffee", Beverage("hot_coffee", map<string, int>{make_pair("hotWater", 50), make_pair("hotMilk", 10), make_pair("coffeeSyrup", 10), make_pair("sugarSyrup", 10)})));
     beverages.insert(make_pair("hot_tea", Beverage("hot_tea", map<string, int>{make_pair("hotWater", 200), make_pair("hotMilk", 100), make_pair("teaLeavesSyrup", 30), make_pair("sugarSyrup", 10), make_pair("gingerSyrup", 10)})));

@@ -50,13 +50,13 @@ public:
         const int div_width = 4;
         const char seperator = ' ';
         for (auto itr:availableIngredients) {
-            print("||", div_width, seperator);
+            print("#", div_width, seperator);
             print(itr.first, width, seperator);
-            print("||", div_width, seperator);
+            print("#", div_width, seperator);
             print(itr.second, numWidth, seperator);
-            print("||", div_width, seperator);
+            print("#", div_width, seperator);
             if (itr.second == 0)
-                print("(LOW)", 6, seperator);
+                print("(LOW on Quantity)", 6, seperator);
             cout << endl;
         }
         cout << endl;
